@@ -1,0 +1,1 @@
+python detect.py --weights yolov7-tiny.pt --conf 0.4 --img-size 640 --source 0 --device cpu

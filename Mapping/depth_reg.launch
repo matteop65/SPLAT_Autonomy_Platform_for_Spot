@@ -1,0 +1,66 @@
+
+
+<launch>
+
+
+
+   <group ns="frontleftdepth">
+    <node pkg="nodelet" type="nodelet" name="nodelet_managerA" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="depth_reg1" args="load depth_image_proc/register nodelet_managerA">
+      <remap from="rgb/camera_info"       to="/spot/camera/frontleft/camera_info"/>
+      <remap from="depth/camera_info"     to="/spot/depth/frontleft/camera_info"/>
+      <remap from="depth/image_rect" to="/spot/depth/frontleft/image"/>
+      <remap from="depth_registered/camera_info" to="/spot/depth_reg/frontleft/camera_info"/>
+      <remap from="depth_registered/image_rect" to="/spot/depth_reg/frontleft/image"/>
+    </node>
+   </group>
+  
+   <group ns="frontrightdepth">
+    <node pkg="nodelet" type="nodelet" name="nodelet_managerB" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="depth_reg2" args="load depth_image_proc/register nodelet_managerB">
+      <remap from="rgb/camera_info"       to="/spot/camera/frontright/camera_info"/>
+      <remap from="depth/camera_info"     to="/spot/depth/frontright/camera_info"/>
+      <remap from="depth/image_rect" to="/spot/depth/frontright/image"/>
+      <remap from="depth_registered/camera_info" to="/spot/depth_reg/frontright/camera_info"/>
+      <remap from="depth_registered/image_rect" to="/spot/depth_reg/frontright/image"/>
+    </node>
+   </group>
+     
+  
+
+   <group ns="leftdepth">
+    <node pkg="nodelet" type="nodelet" name="nodelet_managerC" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="depth_reg3" args="load depth_image_proc/register nodelet_managerC">
+      <remap from="rgb/camera_info"       to="/spot/camera/left/camera_info"/>
+      <remap from="depth/camera_info"     to="/spot/depth/left/camera_info"/>
+      <remap from="depth/image_rect" to="/spot/depth/left/image"/>
+      <remap from="depth_registered/camera_info" to="/spot/depth_reg/left/camera_info"/>
+      <remap from="depth_registered/image_rect" to="/spot/depth_reg/left/image"/>
+    </node>
+   </group>
+     
+     <group ns="rightdepth">
+    <node pkg="nodelet" type="nodelet" name="nodelet_managerD" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="depth_reg4" args="load depth_image_proc/register nodelet_managerD">
+      <remap from="rgb/camera_info"       to="/spot/camera/right/camera_info"/>
+      <remap from="depth/camera_info"     to="/spot/depth/right/camera_info"/>
+      <remap from="depth/image_rect" to="/spot/depth/right/image"/>
+      <remap from="depth_registered/camera_info" to="/spot/depth_reg/right/camera_info"/>
+      <remap from="depth_registered/image_rect" to="/spot/depth_reg/right/image"/>
+    </node>
+   </group>
+     
+    <group ns="backdepth">
+    <node pkg="nodelet" type="nodelet" name="nodelet_managerE" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="depth_reg5" args="load depth_image_proc/register nodelet_managerE">
+      <remap from="rgb/camera_info"       to="/spot/camera/back/camera_info"/>
+      <remap from="depth/camera_info"     to="/spot/depth/back/camera_info"/>
+      <remap from="depth/image_rect" to="/spot/depth/back/image"/>
+      <remap from="depth_registered/camera_info" to="/spot/depth_reg/back/camera_info"/>
+      <remap from="depth_registered/image_rect" to="/spot/depth_reg/back/image"/>
+    </node>
+   </group>
+
+   
+   
+   </launch>
